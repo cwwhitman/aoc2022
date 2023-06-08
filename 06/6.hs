@@ -1,9 +1,4 @@
-import Data.List
-
-cascade :: Int -> [a] -> [[a]]
-cascade n = take n . iterate tail
-
-views n xs = takeWhile ((n ==) . length) $ transpose $ cascade n xs
+views n xs = takeWhile ((n ==) . length) $ map (take n) $ iterate tail xs
 
 unique _    []     = True
 unique seen (x:xs) = x `notElem` seen && unique (x:seen) xs
