@@ -1,7 +1,7 @@
 import Data.List
 
 cascade :: Int -> [a] -> [[a]]
-cascade n = take n . iterate (drop 1)
+cascade n = take n . iterate tail
 
 views n xs = takeWhile ((n ==) . length) $ transpose $ cascade n xs
 
