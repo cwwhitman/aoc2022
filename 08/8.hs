@@ -9,8 +9,8 @@ distanceSeen h (x : xs)
   | x < h = 1 + distanceSeen h xs
   | otherwise = 1
 
-beauties :: [Int] -> [Int] -> [Int]
-beauties _ [] = []
+beauty :: [Int] -> [Int] -> [Int]
+beauty _ [] = []
 beauty l (x : r) = product (map (distanceSeen x) [l, r]) : beauty (x : l) r
 
 main = do
