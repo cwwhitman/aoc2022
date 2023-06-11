@@ -27,7 +27,7 @@ states n = foldl
             let nh = update (head snake) dir in
             reverse (foldl (\front seg -> simulate (head front) seg : front ) [nh] (tail snake))
           : (snake:ss))
-          [[(0, 0) | _ <- [1..n]]]
+          [replicate n (0, 0)]
 
 main = do
   input <- readFile "input"
